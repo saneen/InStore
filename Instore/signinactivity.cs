@@ -19,7 +19,6 @@ namespace Instore
         {
             base.OnCreate(savedInstanceState);
             SetContentView(Resource.Layout.signin);
-            // Create your application here
         }
     }
 }
