@@ -18,7 +18,7 @@ namespace Instore
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            SetContentView(Resource.Layout.signin);
             // Create your application here
         }
     }
