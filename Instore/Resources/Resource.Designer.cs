@@ -2104,6 +2104,9 @@ namespace Instore
 			// aapt resource value: 0x7f060020
 			public const int collapseActionView = 2131099680;
 			
+			// aapt resource value: 0x7f06008b
+			public const int confrmpass_ = 2131099787;
+			
 			// aapt resource value: 0x7f06004d
 			public const int contentPanel = 2131099725;
 			
@@ -2142,6 +2145,9 @@ namespace Instore
 			
 			// aapt resource value: 0x7f060060
 			public const int edit_query = 2131099744;
+			
+			// aapt resource value: 0x7f060089
+			public const int email_ = 2131099785;
 			
 			// aapt resource value: 0x7f06001d
 			public const int end = 2131099677;
@@ -2224,23 +2230,23 @@ namespace Instore
 			// aapt resource value: 0x7f060016
 			public const int multiply = 2131099670;
 			
-			// aapt resource value: 0x7f06008c
-			public const int nav_FeedBack = 2131099788;
+			// aapt resource value: 0x7f060092
+			public const int nav_FeedBack = 2131099794;
 			
-			// aapt resource value: 0x7f06008b
-			public const int nav_about = 2131099787;
+			// aapt resource value: 0x7f060091
+			public const int nav_about = 2131099793;
 			
-			// aapt resource value: 0x7f06008a
-			public const int nav_categorys = 2131099786;
+			// aapt resource value: 0x7f060090
+			public const int nav_categorys = 2131099792;
 			
-			// aapt resource value: 0x7f060087
-			public const int nav_home = 2131099783;
+			// aapt resource value: 0x7f06008d
+			public const int nav_home = 2131099789;
 			
-			// aapt resource value: 0x7f060089
-			public const int nav_profile = 2131099785;
+			// aapt resource value: 0x7f06008f
+			public const int nav_profile = 2131099791;
 			
-			// aapt resource value: 0x7f060088
-			public const int nav_sign = 2131099784;
+			// aapt resource value: 0x7f06008e
+			public const int nav_sign = 2131099790;
 			
 			// aapt resource value: 0x7f060079
 			public const int nav_view = 2131099769;
@@ -2262,6 +2268,12 @@ namespace Instore
 			
 			// aapt resource value: 0x7f060049
 			public const int parentPanel = 2131099721;
+			
+			// aapt resource value: 0x7f06008a
+			public const int password_ = 2131099786;
+			
+			// aapt resource value: 0x7f060088
+			public const int phone_ = 2131099784;
 			
 			// aapt resource value: 0x7f060034
 			public const int pin = 2131099700;
@@ -2341,6 +2353,9 @@ namespace Instore
 			// aapt resource value: 0x7f060013
 			public const int showTitle = 2131099667;
 			
+			// aapt resource value: 0x7f06008c
+			public const int signup_ = 2131099788;
+			
 			// aapt resource value: 0x7f060070
 			public const int snackbar_action = 2131099760;
 			
@@ -2418,6 +2433,9 @@ namespace Instore
 			
 			// aapt resource value: 0x7f060014
 			public const int useLogo = 2131099668;
+			
+			// aapt resource value: 0x7f060087
+			public const int username_ = 2131099783;
 			
 			// aapt resource value: 0x7f06000a
 			public const int view_offset_helper = 2131099658;
@@ -2554,85 +2572,88 @@ namespace Instore
 			public const int abc_select_dialog_material = 2130903065;
 			
 			// aapt resource value: 0x7f03001a
-			public const int design_bottom_sheet_dialog = 2130903066;
+			public const int choosesignin = 2130903066;
 			
 			// aapt resource value: 0x7f03001b
-			public const int design_layout_snackbar = 2130903067;
+			public const int design_bottom_sheet_dialog = 2130903067;
 			
 			// aapt resource value: 0x7f03001c
-			public const int design_layout_snackbar_include = 2130903068;
+			public const int design_layout_snackbar = 2130903068;
 			
 			// aapt resource value: 0x7f03001d
-			public const int design_layout_tab_icon = 2130903069;
+			public const int design_layout_snackbar_include = 2130903069;
 			
 			// aapt resource value: 0x7f03001e
-			public const int design_layout_tab_text = 2130903070;
+			public const int design_layout_tab_icon = 2130903070;
 			
 			// aapt resource value: 0x7f03001f
-			public const int design_menu_item_action_area = 2130903071;
+			public const int design_layout_tab_text = 2130903071;
 			
 			// aapt resource value: 0x7f030020
-			public const int design_navigation_item = 2130903072;
+			public const int design_menu_item_action_area = 2130903072;
 			
 			// aapt resource value: 0x7f030021
-			public const int design_navigation_item_header = 2130903073;
+			public const int design_navigation_item = 2130903073;
 			
 			// aapt resource value: 0x7f030022
-			public const int design_navigation_item_separator = 2130903074;
+			public const int design_navigation_item_header = 2130903074;
 			
 			// aapt resource value: 0x7f030023
-			public const int design_navigation_item_subheader = 2130903075;
+			public const int design_navigation_item_separator = 2130903075;
 			
 			// aapt resource value: 0x7f030024
-			public const int design_navigation_menu = 2130903076;
+			public const int design_navigation_item_subheader = 2130903076;
 			
 			// aapt resource value: 0x7f030025
-			public const int design_navigation_menu_item = 2130903077;
+			public const int design_navigation_menu = 2130903077;
 			
 			// aapt resource value: 0x7f030026
-			public const int design_text_input_password_icon = 2130903078;
+			public const int design_navigation_menu_item = 2130903078;
 			
 			// aapt resource value: 0x7f030027
-			public const int Main = 2130903079;
+			public const int design_text_input_password_icon = 2130903079;
 			
 			// aapt resource value: 0x7f030028
-			public const int notification_media_action = 2130903080;
+			public const int Main = 2130903080;
 			
 			// aapt resource value: 0x7f030029
-			public const int notification_media_cancel_action = 2130903081;
+			public const int notification_media_action = 2130903081;
 			
 			// aapt resource value: 0x7f03002a
-			public const int notification_template_big_media = 2130903082;
+			public const int notification_media_cancel_action = 2130903082;
 			
 			// aapt resource value: 0x7f03002b
-			public const int notification_template_big_media_narrow = 2130903083;
+			public const int notification_template_big_media = 2130903083;
 			
 			// aapt resource value: 0x7f03002c
-			public const int notification_template_lines = 2130903084;
+			public const int notification_template_big_media_narrow = 2130903084;
 			
 			// aapt resource value: 0x7f03002d
-			public const int notification_template_media = 2130903085;
+			public const int notification_template_lines = 2130903085;
 			
 			// aapt resource value: 0x7f03002e
-			public const int notification_template_part_chronometer = 2130903086;
+			public const int notification_template_media = 2130903086;
 			
 			// aapt resource value: 0x7f03002f
-			public const int notification_template_part_time = 2130903087;
+			public const int notification_template_part_chronometer = 2130903087;
 			
 			// aapt resource value: 0x7f030030
-			public const int select_dialog_item_material = 2130903088;
+			public const int notification_template_part_time = 2130903088;
 			
 			// aapt resource value: 0x7f030031
-			public const int select_dialog_multichoice_material = 2130903089;
+			public const int select_dialog_item_material = 2130903089;
 			
 			// aapt resource value: 0x7f030032
-			public const int select_dialog_singlechoice_material = 2130903090;
+			public const int select_dialog_multichoice_material = 2130903090;
 			
 			// aapt resource value: 0x7f030033
-			public const int signin = 2130903091;
+			public const int select_dialog_singlechoice_material = 2130903091;
 			
 			// aapt resource value: 0x7f030034
-			public const int support_simple_spinner_dropdown_item = 2130903092;
+			public const int signin = 2130903092;
+			
+			// aapt resource value: 0x7f030035
+			public const int support_simple_spinner_dropdown_item = 2130903093;
 			
 			static Layout()
 			{
@@ -3861,11 +3882,11 @@ namespace Instore
 			// aapt resource value: 0x7f080164
 			public const int Widget_Design_TextInputLayout = 2131231076;
 			
-			// aapt resource value: 0x7f080166
-			public const int theme = 2131231078;
-			
 			// aapt resource value: 0x7f080165
-			public const int themenav = 2131231077;
+			public const int theme = 2131231077;
+			
+			// aapt resource value: 0x7f080166
+			public const int themenav = 2131231078;
 			
 			static Style()
 			{

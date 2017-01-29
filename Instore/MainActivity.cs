@@ -26,10 +26,11 @@ namespace Instore
             SupportActionBar.SetDisplayHomeAsUpEnabled(true);
             SupportActionBar.SetDisplayShowTitleEnabled(false);
             SupportActionBar.SetHomeButtonEnabled(true);
+            toolbar.Title = "Instore";
             SupportActionBar.SetHomeAsUpIndicator(Resource.Drawable.ic_menu);
             drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
-            navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;        
+            navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
         }
 
         private void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
@@ -39,6 +40,9 @@ namespace Instore
             {
                 case Resource.Id.nav_home:
                     StartActivity(typeof(MainActivity));
+                    break;
+                 case Resource.Id.nav_sign:
+                    StartActivity(typeof(choosesigninactivity));
                     break;
             }
         }
