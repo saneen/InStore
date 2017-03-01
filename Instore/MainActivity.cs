@@ -44,6 +44,17 @@ namespace Instore
                  case Resource.Id.nav_sign:
                     StartActivity(typeof(choosesigninactivity));
                     break;
+                case Resource.Id.nav_about:
+                    StartActivity(typeof(abourActivity));
+                    break;
+                case Resource.Id.nav_FeedBack:
+                    StartActivity(typeof(feedbackActivity));
+                    break;
+                case Resource.Id.nav_profile:
+                    StartActivity(typeof(profileActivity));
+                    break;
+                case Resource.Id.nav_categorys:
+                    break;
             }
         }
 
