@@ -9,11 +9,12 @@ using Android.OS;
 using Android.Runtime;
 using Android.Views;
 using Android.Widget;
+using Android.Support.V7.App;
 
 namespace Instore
 {
-    [Activity(Label = "abourActivity")]
-    public class abourActivity : Activity
+    [Activity(Label = "Instore",Theme ="@style/theme")]
+    public class abourActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)
         {

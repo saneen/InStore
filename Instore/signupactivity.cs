@@ -52,8 +52,7 @@ namespace Instore
                 {
                     HttpClient cient = new HttpClient();
                     var url = "http://www.slashcode.ml/instoreapp/reg.php";
-                
-               //     Uri uri = new Uri("http://www.slashcode.ml/instoreapp/  reg.php");
+           
                     MultipartFormDataContent parameters = new MultipartFormDataContent();
                     parameters.Add(new StringContent(username.Text),"username");
                     parameters.Add(new StringContent(password.Text), "password");
@@ -66,13 +65,13 @@ namespace Instore
                         var data = JsonConvert.DeserializeObject<ResponseModel>(cont);
                         if (data.data)
                         {
-                            Toast.MakeText(this, data.status, ToastLength.Long).Show();
-                            //Success
+                            Toast.MakeText(this, "Successfully signed in.....!", ToastLength.Long).Show();
+                            StartActivity(typeof(loginActivity));
                         }
                         else
                         {
                             Toast.MakeText(this, data.status, ToastLength.Long).Show();
-                            //Show Alert data.status
+                            Toast.MakeText(this, "Error Signing up.....", ToastLength.Long).Show();
                         }
                     }
                     else
