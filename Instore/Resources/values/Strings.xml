@@ -6,8 +6,5 @@
       <item name="colorPrimary">#900C3F</item>
       <item name="colorPrimaryDark">#900C3F</item>
     </style>
-  <style name="theme" parent="Theme.AppCompat.Light">
-    <item name="colorPrimary">#900C3F</item>
-    <item name="colorPrimaryDark">#900C3F</item>
-  </style>
+
   </resources>

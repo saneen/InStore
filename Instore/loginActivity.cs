@@ -10,10 +10,12 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.Support.V7.App;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace Instore
 {
-    [Activity(Label = "logibActivity",Theme ="@style/theme")]
+    [Activity(Label = "Instore",Theme ="@style/theme")]
     public class loginActivity : AppCompatActivity
     {
         private EditText username, password;
@@ -28,15 +30,39 @@ namespace Instore
             signin.Click += Signin_Click;
         }
 
-        private void Signin_Click(object sender, EventArgs e)
+        private async void Signin_Click(object sender, EventArgs e)
         {
-            if(username.Text==""|password.Text=="")
+            if (username.Text == "" | password.Text == "")
             {
                 Toast.MakeText(this, "Please Fill All The Fields", ToastLength.Long).Show();
             }
             else
             {
+                HttpClient client = new HttpClient();
+                var url = "http://www.slashcode.ml/instoreapp/login.php";
+                MultipartFormDataContent parameter = new MultipartFormDataContent();
+                parameter.Add(new StringContent(username.Text), "username");
+                parameter.Add(new StringContent(password.Text), "password");
+                var resp = await client.PostAsync(url, parameter);
+                if (resp.IsSuccessStatusCode)
+                {
+                    var cont = await resp.Content.ReadAsStringAsync();
+                    var data = JsonConvert.DeserializeObject<ResponseModel>(cont);
+                    if (data.data)
+                    {
+                        Toast.MakeText(this, "Login successfull",ToastLength.Short).Show();
+                        StartActivity(typeof(MainActivity));
+                    }
+                    else
+                    {
+                        Toast.MakeText(this, "Login Failed ....! Invalid username or password", ToastLength.Long).Show();
+                    }
+                }
 
+                else
+                {
+                    var cont = resp.Content.ToString();
+                }
             }
         }
     }

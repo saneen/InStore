@@ -4249,11 +4249,11 @@ namespace Instore
 			// aapt resource value: 0x7f06001a
 			public const int Widget_Design_TextInputLayout = 2131099674;
 			
-			// aapt resource value: 0x7f06017b
-			public const int theme = 2131100027;
-			
 			// aapt resource value: 0x7f06017a
-			public const int themenav = 2131100026;
+			public const int theme = 2131100026;
+			
+			// aapt resource value: 0x7f06017b
+			public const int themenav = 2131100027;
 			
 			static Style()
 			{
