@@ -3,5 +3,46 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
+    <ImageView
+        android:id="@+id/pimagview"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/icon_shopping"
+        android:layout_width="80dp"
+        android:layout_height="80dp" />
+    <TextView
+        android:inputType="textPersonName"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pname_"
+        android:hint="Username"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+    <TextView
+        android:inputType="phone"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pname_"
+        android:id="@+id/pphone_"
+        android:hint="Phone Number"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp" />
+    <TextView
+        android:inputType="textEmailAddress"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/pphone_"
+        android:id="@+id/pemail_"
+        android:layout_marginTop="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:hint="Email Id" />
 </LinearLayout>

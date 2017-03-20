@@ -17,4 +17,15 @@ namespace Instore
         public string status { get; set; }
         public bool data { get; set; }
     }
+	public class Datum
+	{
+		public string shopId { get; set; }
+		public string shopName { get; set; }
+	}
+
+	public class RootObject
+	{
+		public string status { get; set; }
+		public List<Datum> data { get; set; }
+	}
 }
