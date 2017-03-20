@@ -50,6 +50,9 @@ namespace Instore
                 }
                 else
                 {
+					ProgressDialog prog = new ProgressDialog(this);
+					prog.SetTitle("Please wait......!!!");
+					prog.Show();
                     HttpClient cient = new HttpClient();
                     var url = "http://www.slashcode.ml/instoreapp/reg.php";
            
@@ -67,11 +70,13 @@ namespace Instore
                         {
                             Toast.MakeText(this, "Successfully signed in.....!", ToastLength.Long).Show();
                             StartActivity(typeof(loginActivity));
+							prog.Dismiss();
                         }
                         else
                         {
                             Toast.MakeText(this, data.status, ToastLength.Long).Show();
                             Toast.MakeText(this, "Error Signing up.....", ToastLength.Long).Show();
+							prog.Dismiss();
                         }
                     }
                     else

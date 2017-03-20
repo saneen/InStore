@@ -23,7 +23,11 @@ namespace Instore
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
+<<<<<<< HEAD
             SetContentView(Resource.Layout.login);
+=======
+			SetContentView(Resource.Layout.login);
+>>>>>>> refs/remotes/origin/mridul
             username = FindViewById<EditText>(Resource.Id.signusername);
             password = FindViewById<EditText>(Resource.Id.signpass);
             signin = FindViewById<Button>(Resource.Id.login);
@@ -38,6 +42,9 @@ namespace Instore
             }
             else
             {
+				ProgressDialog prog = new ProgressDialog(this);
+				prog.SetTitle("Please wait......!!!");
+				prog.Show();
                 HttpClient client = new HttpClient();
                 var url = "http://www.slashcode.ml/instoreapp/login.php";
                 MultipartFormDataContent parameter = new MultipartFormDataContent();
@@ -51,12 +58,14 @@ namespace Instore
                     if (data.data)
                     {
                         Toast.MakeText(this, "Login successfull",ToastLength.Short).Show();
-                        StartActivity(typeof(MainActivity));
-                    }
+                StartActivity(typeof(MainActivity));
+						prog.Dismiss();
+					}
                     else
                     {
                         Toast.MakeText(this, "Login Failed ....! Invalid username or password", ToastLength.Long).Show();
-                    }
+						prog.Dismiss();
+                    					}
                 }
 
                 else
