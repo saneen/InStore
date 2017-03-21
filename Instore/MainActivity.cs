@@ -119,9 +119,11 @@ namespace Instore
 			if (resp.IsSuccessStatusCode)
 			{
 				var cont = await resp.Content.ReadAsStringAsync();
-				var datar = JsonConvert.DeserializeObject<Datum>(cont);
-				Toast.MakeText(this,datar.shopId, ToastLength.Short).Show();
-				if (datar.shopId==null)
+				var datar = JsonConvert.DeserializeObject<RootObject>(cont);
+				var shpId = datar.data[0].shopId;
+				Toast.MakeText(this,shpId, ToastLength.Short).Show();
+			
+			/*	if (datar.shopId==null)
 				{
 					Toast.MakeText(this, "No shops in selected location ...Try another !!!", ToastLength.Long).Show();
 					prog.Dismiss();
@@ -130,7 +132,7 @@ namespace Instore
 				{
 					Toast.MakeText(this, datar.shopId, ToastLength.Short).Show();
 					prog.Dismiss();
-				}
+				}*/
 			}
 
 			else

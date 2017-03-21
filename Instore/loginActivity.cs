@@ -22,8 +22,8 @@ namespace Instore
         Button signin;
         protected override void OnCreate(Bundle savedInstanceState)
         {
-            base.OnCreate(savedInstanceState);
-			SetContentView(Resource.Layout.login);
+			base.OnCreate(savedInstanceState);
+            SetContentView(Resource.Layout.login);
             username = FindViewById<EditText>(Resource.Id.signusername);
             password = FindViewById<EditText>(Resource.Id.signpass);
             signin = FindViewById<Button>(Resource.Id.login);
