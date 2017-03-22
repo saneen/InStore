@@ -28,4 +28,16 @@ namespace Instore
 		public string status { get; set; }
 		public List<Datum> data { get; set; }
 	}
+
+public class product
+	{
+		public string image { get; set; }
+		public string caption { get; set; }
+	}
+
+	public class RootObjectproduct
+	{
+		public string status { get; set; }
+		public List<product> data { get; set; }
+	}
 }
