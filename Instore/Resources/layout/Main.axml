@@ -35,10 +35,9 @@
                 android:layout_below="@id/main_pickAPlaceButton">
                 <Button
                     android:id="@+id/changeview"
-                    android:layout_width="wrap_content"
+                    android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center_horizontal"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="Change view"
                     android:background="#57d6c7" />
                 <android.support.v7.widget.RecyclerView
