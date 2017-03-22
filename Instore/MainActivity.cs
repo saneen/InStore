@@ -216,6 +216,7 @@ namespace Instore
 							var image = datas.data[i].image;
 							if (image!=null)
 							{
+								//saneen
 								//this image down below is source and title is caption for image make it to the recycler view that the job
 								image = "http://www.http://slashcode.ml/instore/image/" + image;
 								var title = datas.data[i].caption;
