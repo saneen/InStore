@@ -194,16 +194,54 @@ namespace Instore
 				var shpId = datar.data[0].shopId;
 				Toast.MakeText(this,shpId, ToastLength.Short).Show();
 			
-			/*	if (datar.shopId==null)
+				if (shpId==null)
 				{
 					Toast.MakeText(this, "No shops in selected location ...Try another !!!", ToastLength.Long).Show();
 					prog.Dismiss();
 				}
 				else
 				{
-					Toast.MakeText(this, datar.shopId, ToastLength.Short).Show();
+					HttpClient clients = new HttpClient();
+					var urls = "http://www.slashcode.ml/instoreapp/prodlist.php";
+					MultipartFormDataContent parameters = new MultipartFormDataContent();
+					parameters.Add(new StringContent("13"), "shop");
+					var resps = await clients.PostAsync(urls, parameters);
+					if (resps.IsSuccessStatusCode)
+					{
+						var conts = await resps.Content.ReadAsStringAsync();
+						var datas = JsonConvert.DeserializeObject<RootObjectproduct>(conts);
+						int i = 0;
+						while (datas.data[i].image!=null)
+						{
+							var image = datas.data[i].image;
+							if (image!=null)
+							{
+								//saneen
+								//this image down below is source and title is caption for image make it to the recycler view that the job
+								image = "http://www.http://slashcode.ml/instore/image/" + image;
+								var title = datas.data[i].caption;
+						//		Toast.MakeText(this, image, ToastLength.Short).Show();
+								prog.Dismiss();
+								i++;
+							}	
+													
+							else
+						{
+							Toast.MakeText(this, "No products available...", ToastLength.Long).Show();
+								prog.Dismiss();
+							}
+								
+						}
+
+					}
+
+					else
+					{
+						var conts = resps.Content.ToString();
+					}
+							
 					prog.Dismiss();
-				}*/
+				}
 			}
 
 			else
