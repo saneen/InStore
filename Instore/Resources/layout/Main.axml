@@ -28,23 +28,24 @@
                 android:layout_centerHorizontal="true"
                 android:text="Pick A Place"
                 android:background="@drawable/gpsicon" />
-            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-            <Button
-                android:id="@+id/changeview"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:textAppearance="?android:attr/textAppearanceLarge"
-                android:text="Change view" />
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:scrollbars="vertical"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent" />
-</LinearLayout>        
+                android:layout_height="fill_parent"
+                android:layout_below="@id/main_pickAPlaceButton">
+                <Button
+                    android:id="@+id/changeview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Change view" />
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:scrollbars="vertical"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" />
+            </LinearLayout>
         </RelativeLayout>
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
