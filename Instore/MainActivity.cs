@@ -41,9 +41,6 @@ namespace Instore
         {
             base.OnCreate(bundle);
 
-            // Instantiate the photo album:
-            mPhotoAlbum = new PhotoAlbum();
-
             SetContentView(Resource.Layout.Main);
             var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
             SetSupportActionBar(toolbar);
@@ -58,35 +55,6 @@ namespace Instore
 			navigationView.NavigationItemSelected+=NavigationView_NavigationItemSelected;
 			pickplace.Click += OnPickAPlaceButtonTapped;
 
-    //----------------------------------------------------------------------
-
-            // Get our RecyclerView layout:
-            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-
-            //............................................................
-            // Layout Manager Setup:
-
-            // Use the built-in linear layout manager:
-            mLayoutManager = new LinearLayoutManager(this);
-            list = mLayoutManager;
-
-            // Plug the layout manager into the RecyclerView:
-            mRecyclerView.SetLayoutManager(mLayoutManager);
-
-            //............................................................
-            // Adapter Setup:
-
-            // Create an adapter for the RecyclerView, and pass it the
-            // data set (the photo album) to manage:
-            mAdapter = new PhotoAlbumAdapter(mPhotoAlbum);
-
-            // Register the item click handler (below) with the adapter:
-            mAdapter.ItemClick += OnItemClick;
-
-            // Plug the adapter into the RecyclerView:
-            mRecyclerView.SetAdapter(mAdapter);
-
-            //............................................................
 
             Button cngview = FindViewById<Button>(Resource.Id.changeview);
 
@@ -211,7 +179,10 @@ namespace Instore
 						var conts = await resps.Content.ReadAsStringAsync();
 						var datas = JsonConvert.DeserializeObject<RootObjectproduct>(conts);
 						int i = 0;
-						while (datas.data[i].image!=null)
+                        Photo[] mdatabasePhotos= { };
+                        mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+
+                        while (datas.data[i].image!=null)
 						{
 							var image = datas.data[i].image;
 							if (image!=null)
@@ -220,8 +191,47 @@ namespace Instore
 								//this image down below is source and title is caption for image make it to the recycler view that the job
 								image = "http://www.http://slashcode.ml/instore/image/" + image;
 								var title = datas.data[i].caption;
-						//		Toast.MakeText(this, image, ToastLength.Short).Show();
-								prog.Dismiss();
+                                //		Toast.MakeText(this, image, ToastLength.Short).Show();
+                                Photo[] t = 
+                                    {
+                                    new Photo { mPhotoID = Resource.Drawable.app_splashcreen,
+                                    mCaption = title },
+                                    };
+                                    var z = new Photo[mdatabasePhotos.Length + t.Length];
+                                    mdatabasePhotos.CopyTo(z, 0);
+                                    t.CopyTo(z, i);
+                                    mdatabasePhotos = z;
+
+                                // Instantiate the photo album:
+                                mPhotoAlbum = new PhotoAlbum(mdatabasePhotos);
+
+
+                                //............................................................
+                                // Layout Manager Setup:
+
+                                mLayoutManager = new LinearLayoutManager(this);
+                                list = mLayoutManager;
+
+                                // Plug the layout manager into the RecyclerView:
+                                mRecyclerView.SetLayoutManager(mLayoutManager);
+
+                                //............................................................
+                                // Adapter Setup:
+
+                                // Create an adapter for the RecyclerView, and pass it the
+                                // data set (the photo album) to manage:
+                                mAdapter = new PhotoAlbumAdapter(mPhotoAlbum);
+
+                                // Register the item click handler (below) with the adapter:
+                                mAdapter.ItemClick += OnItemClick;
+
+                                // Plug the adapter into the RecyclerView:
+                                mRecyclerView.SetAdapter(mAdapter);
+
+                                //............................................................
+
+
+                                prog.Dismiss();
 								i++;
 							}	
 													
@@ -355,52 +365,14 @@ namespace Instore
     // Photo album: holds image resource IDs and caption:
     public class PhotoAlbum
     {
-        // Built-in photo collection - this could be replaced with
-        // a photo database:
-
-        static Photo[] mBuiltInPhotos = {
-            new Photo { mPhotoID = Resource.Drawable.app_splashcreen,
-                        mCaption = "Slash" },
-            new Photo { mPhotoID = Resource.Drawable.gpsicon,
-                        mCaption = "Code" },
-            new Photo { mPhotoID = Resource.Drawable.icon_shopping,
-                        mCaption = "The Logo" },
-            new Photo { mPhotoID = Resource.Drawable.ic_menu,
-                        mCaption = "InStore" },
-            new Photo { mPhotoID = Resource.Drawable.app_splashcreen,
-                        mCaption = "Slash" },
-            new Photo { mPhotoID = Resource.Drawable.gpsicon,
-                        mCaption = "Code" },
-            new Photo { mPhotoID = Resource.Drawable.icon_shopping,
-                        mCaption = "The Logo" },
-            new Photo { mPhotoID = Resource.Drawable.ic_menu,
-                        mCaption = "InStore" },
-            new Photo { mPhotoID = Resource.Drawable.app_splashcreen,
-                        mCaption = "Slash" },
-            new Photo { mPhotoID = Resource.Drawable.gpsicon,
-                        mCaption = "Code" },
-            new Photo { mPhotoID = Resource.Drawable.icon_shopping,
-                        mCaption = "The Logo" },
-            new Photo { mPhotoID = Resource.Drawable.ic_menu,
-                        mCaption = "InStore" },
-            new Photo { mPhotoID = Resource.Drawable.app_splashcreen,
-                        mCaption = "Slash" },
-            new Photo { mPhotoID = Resource.Drawable.gpsicon,
-                        mCaption = "Code" },
-            new Photo { mPhotoID = Resource.Drawable.icon_shopping,
-                        mCaption = "The Logo" },
-            new Photo { mPhotoID = Resource.Drawable.ic_menu,
-                        mCaption = "InStore" },
-
-            };
 
         // Array of photos that make up the album:
         private Photo[] mPhotos;
 
         // Create an instance copy of the built-in photo list
-        public PhotoAlbum()
+        public PhotoAlbum(Photo[] databasephotos)
         {
-            mPhotos = mBuiltInPhotos;
+            mPhotos = databasephotos;
         }
 
         // Return the number of photos in the photo album:
@@ -418,5 +390,3 @@ namespace Instore
 
 
 }
-
-
