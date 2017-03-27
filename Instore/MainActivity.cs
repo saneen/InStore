@@ -155,7 +155,10 @@ namespace Instore
 			parameter.Add(new StringContent(lat), "lattitude");
 			parameter.Add(new StringContent(lng), "longitude");
 			var resp = await client.PostAsync(url, parameter);
-			if (resp.IsSuccessStatusCode)
+
+            Button cngview = FindViewById<Button>(Resource.Id.changeview);
+            cngview.Visibility = ViewStates.Gone;
+            if (resp.IsSuccessStatusCode)
 			{
 				var cont = await resp.Content.ReadAsStringAsync();
 				var datar = JsonConvert.DeserializeObject<RootObject>(cont);
@@ -227,6 +230,8 @@ namespace Instore
 
                                 // Plug the adapter into the RecyclerView:
                                 mRecyclerView.SetAdapter(mAdapter);
+
+                                cngview.Visibility = ViewStates.Visible;
 
                                 //............................................................
 
