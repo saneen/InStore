@@ -81,11 +81,6 @@ namespace Instore
             Toast.MakeText(this, "This is photo number " + photoNum, ToastLength.Short).Show();
         }
 
-
-
-
-<<<<<<< HEAD
-			base.OnActivityResult(requestCode, resultCode, data);
 		}
 
 		private async void GetPlaceFromPicker(Intent data)
@@ -93,7 +88,6 @@ namespace Instore
 			var placePicked = PlacePicker.GetPlace(this, data);
 			var latitude = placePicked.LatLng.Latitude;
 			var longitude = placePicked.LatLng.Longitude;
-			Toast.MakeText(this, latitude.ToString(), ToastLength.Short).Show();
 
 				ProgressDialog prog = new ProgressDialog(this);
 			prog.SetTitle("Please wait......!!!");
