@@ -37,7 +37,8 @@
                     android:id="@+id/changeview"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
+                    android:visibility="gone"
+                    android:gravity="center"
                     android:text="Change view"
                     android:background="#57d6c7" />
                 <android.support.v7.widget.RecyclerView
