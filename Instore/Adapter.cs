@@ -12,9 +12,9 @@ namespace Instore
     {
         public event EventHandler<AdapterClickEventArgs> ItemClick;
         public event EventHandler<AdapterClickEventArgs> ItemLongClick;
-        List<product> products;
+		List<Datum> products;
 
-        public Adapter(List<product> products)
+		public Adapter(List<Datum> products)
         {
             this.products = products;
         }
@@ -40,8 +40,8 @@ namespace Instore
 
             // Replace the contents of the view with that element
             var holder = viewHolder as AdapterViewHolder;
-            holder.Caption.Text = products[position].caption;
-            Koush.UrlImageViewHelper.SetUrlDrawable(holder.Image, "http://slashcode.ml/instore/image/"+products[position].image);
+			holder.Caption.Text = products[position].productName;
+			Koush.UrlImageViewHelper.SetUrlDrawable(holder.Image, "http://slashcode.ml/instore/image/"+products[position].productImage);
         }
  
         public override int ItemCount => products.Count;

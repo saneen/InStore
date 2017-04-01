@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace Instore
 {
-	[Activity(Label = "feedbackActivity",Theme="@style/theme")]
+	[Activity(Label = "Instore",Theme="@style/theme")]
     public class feedbackActivity : AppCompatActivity
     {
         protected override void OnCreate(Bundle savedInstanceState)

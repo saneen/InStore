@@ -17,10 +17,11 @@
     <AndroidResgenFile>Resources\Resource.Designer.cs</AndroidResgenFile>
     <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <TargetFrameworkVersion>v7.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <AndroidTlsProvider></AndroidTlsProvider>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -145,8 +146,6 @@
     <Compile Include="abourActivity.cs" />
     <Compile Include="Adapter.cs" />
     <Compile Include="choosesigninactivity.cs" />
-    <Compile Include="database\dbclass.cs" />
-    <Compile Include="database\dbrepository.cs" />
     <Compile Include="feedbackActivity.cs" />
     <Compile Include="loginActivity.cs" />
     <Compile Include="MainActivity.cs" />
@@ -156,8 +155,9 @@
     <Compile Include="ResponseModel.cs" />
     <Compile Include="signupactivity.cs" />
     <Compile Include="refresheradapter.cs" />
-    <Compile Include="SQLite.cs" />
-    <Compile Include="SQLiteAsync.cs" />
+    <Compile Include="ProductActivity.cs" />
+    <Compile Include="newsActivity.cs" />
+    <Compile Include="webviewActivity.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -188,6 +188,9 @@
     <AndroidResource Include="Resources\layout\product.axml">
       <SubType>Designer</SubType>
     </AndroidResource>
+    <AndroidResource Include="Resources\layout\newsLayout.axml" />
+    <AndroidResource Include="Resources\layout\webviewLayout.axml" />
+    <AndroidResource Include="Resources\layout\productbookingLayout.axml" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Main.axml">

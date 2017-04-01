@@ -1,7 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <resources>
   <style name="theme" parent="Theme.AppCompat.Light">
-    <item name="colorPrimary">#900C3F</item>
-    <item name="colorPrimaryDark">#900C3F</item>
+    <item name="colorPrimary">#3F51B5</item>
+    <item name="colorPrimaryDark">#3F51B5</item>
+		<item name="android:actionBarStyle">@style/theme.ActionBarStyle</item>
   </style>
+
+  <style name="theme.ActionBarStyle" parent="@android:style/Widget.Holo.Light.ActionBar">
+    <item name="android:titleTextStyle">@style/theme.ActionBar.TitleTextStyle</item>
+  </style>
+
+  <style name="theme.ActionBar.TitleTextStyle" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+    <item name="android:textColor">#ffffff</item>
+  </style>
+
 </resources>

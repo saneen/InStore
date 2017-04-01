@@ -13,7 +13,7 @@ using Android.Widget;
 
 namespace Instore
 {
-	[Activity(Label = "profileActivity",Theme="@style/theme")]
+	[Activity(Label = "Instore",Theme="@style/theme")]
     public class profileActivity : AppCompatActivity
     {
 		private TextView username, phone, email;

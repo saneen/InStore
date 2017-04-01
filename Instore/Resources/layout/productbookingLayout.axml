@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
+    android:layout_height="match_parent">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="#3F51B5"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/drawer_layout"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        android:layout_width="match_parent">
+        <RelativeLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="5dp"
+                        android:hint="Product Name" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:padding="@dimen/cardview_default_elevation"
+                        android:id="@+id/prodimage"
+                        android:scaleType="fitCenter" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Price" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Address of shop" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Description" />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Book Now"
+                        android:background="#57d6c7" />
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Get Directions"
+                        android:background="#57d6c7" />
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="350dp"
+                        android:id="@+id/prodimage"
+                        android:scaleType="fitCenter" />
+                </LinearLayout>
+            </ScrollView>
+        </RelativeLayout>
+        <android.support.design.widget.NavigationView
+            android:id="@+id/nav_view"
+            android:layout_height="match_parent"
+            android:layout_width="200dp"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="@menu/menu" />
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>

@@ -17,10 +17,19 @@ namespace Instore
         public string status { get; set; }
         public bool data { get; set; }
     }
-	public class Datum
+
+public class Datum
 	{
 		public string shopId { get; set; }
 		public string shopName { get; set; }
+		public string shopDesc { get; set; }
+		public string productId { get; set; }
+		public string productImage { get; set; }
+		public string productName { get; set; }
+		public string productCategory { get; set; }
+		public string productDescription { get; set; }
+		public string productPrice { get; set; }
+		public string productOffer { get; set; }
 	}
 
 	public class RootObject
@@ -29,15 +38,4 @@ namespace Instore
 		public List<Datum> data { get; set; }
 	}
 
-public class product
-	{
-		public string image { get; set; }
-		public string caption { get; set; }
-	}
-
-	public class RootObjectproduct
-	{
-		public string status { get; set; }
-		public List<product> data { get; set; }
-	}
 }

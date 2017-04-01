@@ -24,7 +24,7 @@ namespace Instore
         DrawerLayout drawerLayout;
         private Button pickplace;
        
-        // RecyclerView instance that displays the photo album:
+       
         RecyclerView mRecyclerView;
 
         // Layout manager that lays out each card in the RecyclerView:
@@ -32,8 +32,6 @@ namespace Instore
 
         // Adapter that accesses the data set (a photo album):
         Adapter mAdapter;
-
-        // Photo album that is managed by the adapter:
 
         protected override void OnCreate(Bundle bundle)
         {
@@ -55,9 +53,8 @@ namespace Instore
 
 
             Button cngview = FindViewById<Button>(Resource.Id.changeview);
-
             cngview.Click += Cngview_Click;
-
+		
         }
 
         //CHANGE VIEW BUTTON 
@@ -73,111 +70,7 @@ namespace Instore
             mRecyclerView.SetLayoutManager(mLayoutManager);
         }
 
-        // Handler for the item click event:
-        void OnItemClick(object sender, int position)
-        {
-            // Display a toast that briefly shows the enumeration of the selected photo:
-            int photoNum = position + 1;
-            Toast.MakeText(this, "This is photo number " + photoNum, ToastLength.Short).Show();
-        }
-
-		}
-
-		private async void GetPlaceFromPicker(Intent data)
-		{
-			var placePicked = PlacePicker.GetPlace(this, data);
-			var latitude = placePicked.LatLng.Latitude;
-			var longitude = placePicked.LatLng.Longitude;
-
-				ProgressDialog prog = new ProgressDialog(this);
-			prog.SetTitle("Please wait......!!!");
-			prog.Show();
-			HttpClient client = new HttpClient();
-			var url = "http://www.slashcode.ml/instoreapp/maps.php";
-			MultipartFormDataContent parameter = new MultipartFormDataContent();
-			string lat = latitude.ToString();
-			string lng = longitude.ToString();
-			parameter.Add(new StringContent(lat), "lattitude");
-			parameter.Add(new StringContent(lng), "longitude");
-			var resp = await client.PostAsync(url, parameter);
-			if (resp.IsSuccessStatusCode)
-			{
-				var cont = await resp.Content.ReadAsStringAsync();
-				var datar = JsonConvert.DeserializeObject<RootObject>(cont);
-				var shpId = datar.data[0].shopId;
-				Toast.MakeText(this,shpId, ToastLength.Short).Show();
-			
-				if (shpId==null)
-				{
-					Toast.MakeText(this, "No shops in selected location ...Try another !!!", ToastLength.Long).Show();
-					prog.Dismiss();
-				}
-				else
-				{
-					HttpClient clients = new HttpClient();
-					var urls = "http://www.slashcode.ml/instoreapp/prodlist.php";
-					MultipartFormDataContent parameters = new MultipartFormDataContent();
-					parameters.Add(new StringContent("13"), "shop");
-					var resps = await clients.PostAsync(urls, parameters);
-					if (resps.IsSuccessStatusCode)
-					{
-						var conts = await resps.Content.ReadAsStringAsync();
-						var datas = JsonConvert.DeserializeObject<RootObjectproduct>(conts);
-						int i = 0;
-						while (datas.data[i].image!=null)
-						{
-							var image = datas.data[i].image;
-							if (image!=null)
-							{
-								//saneen
-								//this image down below is source and title is caption for image make it to the recycler view that the job
-								image = "http://www.http://slashcode.ml/instore/image/" + image;
-								var title = datas.data[i].caption;
-						//	Toast.MakeText(this, image, ToastLength.Short).Show();
-								prog.Dismiss();
-								i++;
-							}	
-													
-							else
-						{
-							Toast.MakeText(this, "No products available...", ToastLength.Long).Show();
-								prog.Dismiss();
-							}
-								
-						}
-
-					}
-
-					else
-					{
-						var conts = resps.Content.ToString();
-					}
-							
-					prog.Dismiss();
-				}
-			}
-
-			else
-			{
-				var cont = resp.Content.ToString();
-				prog.Dismiss();
-			}
-		}
-		}
-
-    //----------------------------------------------------------------------
-    // VIEW HOLDER
-    public class PhotoViewHolder : RecyclerView.ViewHolder
-    {
-        public ImageView Image { get; private set; }
-        public TextView Caption { get; private set; }
-
-        // Get references to the views defined in the CardView layout.
-        public PhotoViewHolder(View itemView, Action<int> listener)
-            : base(itemView)
-=======
         private void NavigationView_NavigationItemSelected(object sender, NavigationView.NavigationItemSelectedEventArgs e)
->>>>>>> refs/remotes/origin/mridul
         {
             var menuitem = e.MenuItem;
             switch (menuitem.ItemId)
@@ -197,7 +90,8 @@ namespace Instore
                 case Resource.Id.nav_profile:
                     StartActivity(typeof(profileActivity));
                     break;
-                case Resource.Id.nav_categorys:
+				case Resource.Id.nav_category:
+					StartActivity(typeof(newsActivity));
                     break;
             }
         }
@@ -233,8 +127,6 @@ namespace Instore
             var placePicked = PlacePicker.GetPlace(this, data);
             var latitude = placePicked.LatLng.Latitude;
             var longitude = placePicked.LatLng.Longitude;
-            Toast.MakeText(this, latitude.ToString(), ToastLength.Short).Show();
-
             ProgressDialog prog = new ProgressDialog(this);
             prog.SetTitle("Please wait......!!!");
             prog.Show();
@@ -249,60 +141,50 @@ namespace Instore
 
             Button cngview = FindViewById<Button>(Resource.Id.changeview);
             cngview.Visibility = ViewStates.Gone;
-            if (resp.IsSuccessStatusCode)
-            {
-                var cont = await resp.Content.ReadAsStringAsync();
-                if (cont == "{\"status\":\"1B200\",\"data\":true}")
-                {
+			if (resp.IsSuccessStatusCode)
+			{
+				var cont = await resp.Content.ReadAsStringAsync();
+				if (cont == "{\"status\":\"1B200\",\"data\":true}")
+				{
 
-                    Toast.MakeText(this, "No shops in selected location ...Try another !!!", ToastLength.Long).Show();
-                    prog.Dismiss();
-                }
-                else
-                {
-                    var datar = JsonConvert.DeserializeObject<RootObject>(cont);
-                    var shpId = datar.data[0].shopId;
-                    Toast.MakeText(this, shpId, ToastLength.Short).Show();
+					Toast.MakeText(this, "No shops in selected location ...Try another !!!", ToastLength.Long).Show();
+					prog.Dismiss();
+				}
+				else
+				{
+					var datas = JsonConvert.DeserializeObject<RootObject>(cont);
+					mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+					list = mLayoutManager = new LinearLayoutManager(this);
+					cngview.Visibility = ViewStates.Visible;
+					mRecyclerView.SetLayoutManager(mLayoutManager);
+					mAdapter = new Adapter(datas.data);
+					mRecyclerView.SetAdapter(mAdapter);
+		           mAdapter.ItemClick += delegate (object sender, AdapterClickEventArgs e)
+					{
+						var activity2 = new Intent(this, typeof(ProductActivity));
+						activity2.PutExtra("shopid", datas.data[e.Position].shopId);
+						activity2.PutExtra("shopname",datas.data[e.Position].shopName);
+						activity2.PutExtra("shopdesc",datas.data[e.Position].shopDesc);
+						activity2.PutExtra("productid", datas.data[e.Position].productId);
+						activity2.PutExtra("productname", datas.data[e.Position].productName);
+						activity2.PutExtra("productcategory", datas.data[e.Position].productCategory);
+						activity2.PutExtra("productdescription", datas.data[e.Position].productDescription);
+						activity2.PutExtra("productprice", datas.data[e.Position].productPrice);
+						activity2.PutExtra("productoffer", datas.data[e.Position].productOffer);
+						StartActivity(activity2);
+				   };
 
-                    if (shpId == null)
-                    {
-                        Toast.MakeText(this, "No shops in selected location ...Try another !!!", ToastLength.Long).Show();
-                        prog.Dismiss();
-                    }
-                    else
-                    {
-                        HttpClient clients = new HttpClient();
-                        var urls = "http://www.slashcode.ml/instoreapp/prodlist.php";
-                        MultipartFormDataContent parameters = new MultipartFormDataContent();
-                        parameters.Add(new StringContent(shpId), "shop");
-                        var resps = await clients.PostAsync(urls, parameters);
-                        if (resps.IsSuccessStatusCode)
-                        {
-                            var conts = await resps.Content.ReadAsStringAsync();
-                            var datas = JsonConvert.DeserializeObject<RootObjectproduct>(conts);
-                            mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
-                            list = mLayoutManager = new LinearLayoutManager(this);
-                            cngview.Visibility = ViewStates.Visible;
-                            mRecyclerView.SetLayoutManager(mLayoutManager);
-                            mAdapter = new Adapter(datas.data);
-                            mRecyclerView.SetAdapter(mAdapter);
-                            prog.Dismiss();
-                        }
-                        else
-                        {
-                            Toast.MakeText(this, "No products available...", ToastLength.Long).Show();
-                            prog.Dismiss();
-                        }
-                    }
-                }
-            }
+					prog.Dismiss();
+				}
+			}
 
+			else
+			{
+				var cont = resp.Content.ToString();
+				prog.Dismiss();
+			}
+        
+		}
 
-            else
-            {
-                var cont = resp.Content.ToString();
-                prog.Dismiss();
-            }
-        }
     }
 }

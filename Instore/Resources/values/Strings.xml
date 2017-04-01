@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="Hello">Hello World, Click Me!</string>
     <string name="ApplicationName">Instore</string>
     <style name="themenav" parent="Theme.AppCompat.Light.NoActionBar">
-      <item name="colorPrimary">#900C3F</item>
-      <item name="colorPrimaryDark">#900C3F</item>
+      <item name="colorPrimary">#2196F3</item>
+      <item name="colorPrimaryDark">#2196F3</item>
     </style>
-
   </resources>
