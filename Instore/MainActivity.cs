@@ -171,6 +171,9 @@ namespace Instore
 						activity2.PutExtra("productdescription", datas.data[e.Position].productDescription);
 						activity2.PutExtra("productprice", datas.data[e.Position].productPrice);
 						activity2.PutExtra("productoffer", datas.data[e.Position].productOffer);
+						activity2.PutExtra("longitude", longitude.ToString());
+						activity2.PutExtra("lattitude", latitude.ToString());
+						activity2.PutExtra("productimage", datas.data[e.Position].productImage);
 						StartActivity(activity2);
 				   };
 

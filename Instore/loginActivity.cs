@@ -14,6 +14,7 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Android.Support.V4.Widget;
 using Android.Support.Design.Widget;
+using Android.Preferences;
 
 namespace Instore
 {
@@ -93,6 +94,10 @@ namespace Instore
                     if (data.data)
                     {
                         Toast.MakeText(this, "Login successfull",ToastLength.Short).Show();
+						ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
+						ISharedPreferencesEditor editor = prefs.Edit();
+						editor.PutBoolean("LoggedIn",true);
+						editor.Apply();
                 StartActivity(typeof(MainActivity));
 						prog.Dismiss();
 					}

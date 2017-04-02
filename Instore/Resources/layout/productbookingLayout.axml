@@ -32,6 +32,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="5dp"
+                        android:id="@+id/b_productname"
                         android:hint="Product Name" />
                     <ImageView
                         android:layout_width="match_parent"
@@ -42,32 +43,44 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/b_productdescrip"
+                        android:hint="Description" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b_price"
                         android:hint="Price" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Address of shop" />
+                        android:id="@+id/b_offprice"
+                        android:hint="Offer Price" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:id="@+id/b_shopname"
+                        android:hint="ShopName" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/b_descrip"
                         android:hint="Description" />
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Book Now"
+                        android:id="@+id/p_getdirection"
+                        android:layout_marginTop="25dp"
+                        android:text="Get Directions"
                         android:background="#57d6c7" />
                     <Button
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="Get Directions"
-                        android:background="#57d6c7" />
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="350dp"
-                        android:id="@+id/prodimage"
-                        android:scaleType="fitCenter" />
+                        android:text="Book"
+                        android:layout_marginTop="20dp"
+                        android:background="#57d6c7"
+                        android:id="@+id/b_booking"
+                        android:gravity="center" />
                 </LinearLayout>
             </ScrollView>
         </RelativeLayout>

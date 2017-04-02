@@ -2549,6 +2549,27 @@ namespace Instore
 			// aapt resource value: 0x7f0b0019
 			public const int auto = 2131427353;
 			
+			// aapt resource value: 0x7f0b00c4
+			public const int b_booking = 2131427524;
+			
+			// aapt resource value: 0x7f0b00c2
+			public const int b_descrip = 2131427522;
+			
+			// aapt resource value: 0x7f0b00c0
+			public const int b_offprice = 2131427520;
+			
+			// aapt resource value: 0x7f0b00bf
+			public const int b_price = 2131427519;
+			
+			// aapt resource value: 0x7f0b00be
+			public const int b_productdescrip = 2131427518;
+			
+			// aapt resource value: 0x7f0b00bd
+			public const int b_productname = 2131427517;
+			
+			// aapt resource value: 0x7f0b00c1
+			public const int b_shopname = 2131427521;
+			
 			// aapt resource value: 0x7f0b0044
 			public const int beginning = 2131427396;
 			
@@ -2600,8 +2621,8 @@ namespace Instore
 			// aapt resource value: 0x7f0b0047
 			public const int collapseActionView = 2131427399;
 			
-			// aapt resource value: 0x7f0b00c4
-			public const int confrmpass_ = 2131427524;
+			// aapt resource value: 0x7f0b00cc
+			public const int confrmpass_ = 2131427532;
 			
 			// aapt resource value: 0x7f0b0058
 			public const int contentPanel = 2131427416;
@@ -2645,8 +2666,8 @@ namespace Instore
 			// aapt resource value: 0x7f0b0070
 			public const int edit_query = 2131427440;
 			
-			// aapt resource value: 0x7f0b00c2
-			public const int email_ = 2131427522;
+			// aapt resource value: 0x7f0b00ca
+			public const int email_ = 2131427530;
 			
 			// aapt resource value: 0x7f0b0025
 			public const int end = 2131427365;
@@ -2741,8 +2762,8 @@ namespace Instore
 			// aapt resource value: 0x7f0b0094
 			public const int main_pickAPlaceButton = 2131427476;
 			
-			// aapt resource value: 0x7f0b00c8
-			public const int masked = 2131427528;
+			// aapt resource value: 0x7f0b00d0
+			public const int masked = 2131427536;
 			
 			// aapt resource value: 0x7f0b00a1
 			public const int media_actions = 2131427489;
@@ -2759,23 +2780,23 @@ namespace Instore
 			// aapt resource value: 0x7f0b0035
 			public const int multiply = 2131427381;
 			
-			// aapt resource value: 0x7f0b00ce
-			public const int nav_FeedBack = 2131427534;
+			// aapt resource value: 0x7f0b00d6
+			public const int nav_FeedBack = 2131427542;
 			
-			// aapt resource value: 0x7f0b00cd
-			public const int nav_about = 2131427533;
+			// aapt resource value: 0x7f0b00d5
+			public const int nav_about = 2131427541;
 			
-			// aapt resource value: 0x7f0b00cc
-			public const int nav_category = 2131427532;
+			// aapt resource value: 0x7f0b00d4
+			public const int nav_category = 2131427540;
 			
-			// aapt resource value: 0x7f0b00c9
-			public const int nav_home = 2131427529;
+			// aapt resource value: 0x7f0b00d1
+			public const int nav_home = 2131427537;
 			
-			// aapt resource value: 0x7f0b00cb
-			public const int nav_profile = 2131427531;
+			// aapt resource value: 0x7f0b00d3
+			public const int nav_profile = 2131427539;
 			
-			// aapt resource value: 0x7f0b00ca
-			public const int nav_sign = 2131427530;
+			// aapt resource value: 0x7f0b00d2
+			public const int nav_sign = 2131427538;
 			
 			// aapt resource value: 0x7f0b0082
 			public const int nav_view = 2131427458;
@@ -2801,20 +2822,23 @@ namespace Instore
 			// aapt resource value: 0x7f0b00a3
 			public const int notification_main_column_container = 2131427491;
 			
+			// aapt resource value: 0x7f0b00c3
+			public const int p_getdirection = 2131427523;
+			
 			// aapt resource value: 0x7f0b002b
 			public const int parallax = 2131427371;
 			
 			// aapt resource value: 0x7f0b0057
 			public const int parentPanel = 2131427415;
 			
-			// aapt resource value: 0x7f0b00c3
-			public const int password_ = 2131427523;
+			// aapt resource value: 0x7f0b00cb
+			public const int password_ = 2131427531;
 			
-			// aapt resource value: 0x7f0b00bf
-			public const int pemail_ = 2131427519;
+			// aapt resource value: 0x7f0b00c7
+			public const int pemail_ = 2131427527;
 			
-			// aapt resource value: 0x7f0b00c1
-			public const int phone_ = 2131427521;
+			// aapt resource value: 0x7f0b00c9
+			public const int phone_ = 2131427529;
 			
 			// aapt resource value: 0x7f0b0091
 			public const int pimageview = 2131427473;
@@ -2849,11 +2873,11 @@ namespace Instore
 			// aapt resource value: 0x7f0b00b7
 			public const int place_autocomplete_separator = 2131427511;
 			
-			// aapt resource value: 0x7f0b00bd
-			public const int pname_ = 2131427517;
+			// aapt resource value: 0x7f0b00c5
+			public const int pname_ = 2131427525;
 			
-			// aapt resource value: 0x7f0b00be
-			public const int pphone_ = 2131427518;
+			// aapt resource value: 0x7f0b00c6
+			public const int pphone_ = 2131427526;
 			
 			// aapt resource value: 0x7f0b00bc
 			public const int prodimage = 2131427516;
@@ -2951,8 +2975,8 @@ namespace Instore
 			// aapt resource value: 0x7f0b0092
 			public const int signpass = 2131427474;
 			
-			// aapt resource value: 0x7f0b00c5
-			public const int signup_ = 2131427525;
+			// aapt resource value: 0x7f0b00cd
+			public const int signup_ = 2131427533;
 			
 			// aapt resource value: 0x7f0b0081
 			public const int signupcho = 2131427457;
@@ -3068,17 +3092,17 @@ namespace Instore
 			// aapt resource value: 0x7f0b0041
 			public const int useLogo = 2131427393;
 			
-			// aapt resource value: 0x7f0b00c0
-			public const int username_ = 2131427520;
+			// aapt resource value: 0x7f0b00c8
+			public const int username_ = 2131427528;
 			
 			// aapt resource value: 0x7f0b0002
 			public const int view_offset_helper = 2131427330;
 			
-			// aapt resource value: 0x7f0b00c7
-			public const int visible = 2131427527;
+			// aapt resource value: 0x7f0b00cf
+			public const int visible = 2131427535;
 			
-			// aapt resource value: 0x7f0b00c6
-			public const int webview = 2131427526;
+			// aapt resource value: 0x7f0b00ce
+			public const int webview = 2131427534;
 			
 			// aapt resource value: 0x7f0b0018
 			public const int wide = 2131427352;
