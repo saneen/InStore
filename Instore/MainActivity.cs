@@ -22,8 +22,8 @@ namespace Instore
         private static readonly int PLACE_PICKER_REQUEST = 1;
         NavigationView navigationView;
         DrawerLayout drawerLayout;
-        private Button pickplace;
-       
+        private Button pickplace,toolbarpickplace;
+        ImageView pickloc;
        
         RecyclerView mRecyclerView;
 
@@ -32,8 +32,11 @@ namespace Instore
 
         // Adapter that accesses the data set (a photo album):
         Adapter mAdapter;
+		Spinner spun;
+		string category;
 
-        protected override void OnCreate(Bundle bundle)
+		string lat, lng;
+		protected override void OnCreate(Bundle bundle)
         {
             base.OnCreate(bundle);
 
@@ -48,18 +51,89 @@ namespace Instore
             drawerLayout = FindViewById<DrawerLayout>(Resource.Id.drawer_layout);
             navigationView = FindViewById<NavigationView>(Resource.Id.nav_view);
             pickplace = FindViewById<Button>(Resource.Id.main_pickAPlaceButton);
+            pickloc = FindViewById<ImageView>(Resource.Id.pickpic);
+            toolbarpickplace = FindViewById<Button>(Resource.Id.toolbar_pickaplacebutton);
             navigationView.NavigationItemSelected += NavigationView_NavigationItemSelected;
             pickplace.Click += OnPickAPlaceButtonTapped;
-
-
+            toolbarpickplace.Click += OnPickAPlaceButtonTapped;
+            spun = FindViewById<Spinner>(Resource.Id.spin);
+			spun.ItemSelected += new EventHandler<AdapterView.ItemSelectedEventArgs>(spinner_itemselected);
+			var adapter = ArrayAdapter.CreateFromResource(this, Resource.Array.catagory_array, Android.Resource.Layout.SimpleSpinnerItem);
+			adapter.SetDropDownViewResource(Android.Resource.Layout.SimpleSpinnerDropDownItem);
+			spun.Adapter = adapter;
             Button cngview = FindViewById<Button>(Resource.Id.changeview);
             cngview.Click += Cngview_Click;
 		
         }
 
-        //CHANGE VIEW BUTTON 
+		private async void spinner_itemselected(object senders, AdapterView.ItemSelectedEventArgs s)
+		{
+			Spinner spinner = (Spinner)senders;
+			category = string.Format("{0}", spinner.GetItemAtPosition(s.Position));
+			ProgressDialog prog = new ProgressDialog(this);
+			prog.SetTitle("Please wait......!!!");
+			prog.Show();
+			HttpClient client = new HttpClient();
+			var url = "http://www.slashcode.ml/instoreapp/maps.php";
+			MultipartFormDataContent parameter = new MultipartFormDataContent();
 
-        private void Cngview_Click(object sender, EventArgs e)
+			parameter.Add(new StringContent(lat), "lattitude");
+			parameter.Add(new StringContent(lng), "longitude");
+			parameter.Add(new StringContent(category), "category");
+			var resp = await client.PostAsync(url, parameter);
+
+
+			Button cngview = FindViewById<Button>(Resource.Id.changeview);
+			if (resp.IsSuccessStatusCode)
+			{
+				var cont = await resp.Content.ReadAsStringAsync();
+				if (cont == "{\"status\":\"1B200\",\"data\":true}")
+				{
+
+					Toast.MakeText(this, "No shops in selected location ...Try another !!!", ToastLength.Long).Show();
+					prog.Dismiss();
+				}
+				else
+				{
+					var datas = JsonConvert.DeserializeObject<RootObject>(cont);
+					mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
+					list = mLayoutManager = new LinearLayoutManager(this);
+					cngview.Visibility = ViewStates.Visible;
+					spun.Visibility = ViewStates.Visible;
+                    toolbarpickplace.Visibility = ViewStates.Visible;
+					mRecyclerView.SetLayoutManager(mLayoutManager);
+					mAdapter = new Adapter(datas.data);
+					mRecyclerView.SetAdapter(mAdapter);
+					mAdapter.ItemClick += delegate (object sender, AdapterClickEventArgs e)
+					 {
+						 var activity2 = new Intent(this, typeof(ProductActivity));
+						 activity2.PutExtra("shopid", datas.data[e.Position].shopId);
+						 activity2.PutExtra("shopname", datas.data[e.Position].shopName);
+						 activity2.PutExtra("shopdesc", datas.data[e.Position].shopDesc);
+						 activity2.PutExtra("productid", datas.data[e.Position].productId);
+						 activity2.PutExtra("productname", datas.data[e.Position].productName);
+						 activity2.PutExtra("productcategory", datas.data[e.Position].productCategory);
+						 activity2.PutExtra("productdescription", datas.data[e.Position].productDescription);
+						 activity2.PutExtra("productprice", datas.data[e.Position].productPrice);
+						 activity2.PutExtra("productoffer", datas.data[e.Position].productOffer);
+						activity2.PutExtra("longitude", lng);
+						 activity2.PutExtra("lattitude", lat.ToString());
+						 activity2.PutExtra("productimage", datas.data[e.Position].productImage);
+						 StartActivity(activity2);
+					 };
+
+					prog.Dismiss();
+				}
+			}
+
+			else
+			{
+				var cont = resp.Content.ToString();
+				prog.Dismiss();
+			}
+		}
+
+		private void Cngview_Click(object sender, EventArgs e)
         {
             if (mLayoutManager == list)
                 mLayoutManager = new GridLayoutManager
@@ -87,9 +161,9 @@ namespace Instore
                 case Resource.Id.nav_FeedBack:
                     StartActivity(typeof(feedbackActivity));
                     break;
-                case Resource.Id.nav_profile:
+                /*case Resource.Id.nav_profile:
                     StartActivity(typeof(profileActivity));
-                    break;
+                    break;*/
 				case Resource.Id.nav_category:
 					StartActivity(typeof(newsActivity));
                     break;
@@ -109,6 +183,7 @@ namespace Instore
 
         private void OnPickAPlaceButtonTapped(object sender, EventArgs eventArgs)
         {
+            pickloc.Visibility = ViewStates.Gone;
             var builder = new PlacePicker.IntentBuilder();
             StartActivityForResult(builder.Build(this), PLACE_PICKER_REQUEST);
         }
@@ -133,14 +208,18 @@ namespace Instore
             HttpClient client = new HttpClient();
             var url = "http://www.slashcode.ml/instoreapp/maps.php";
             MultipartFormDataContent parameter = new MultipartFormDataContent();
-            string lat = latitude.ToString();
-            string lng = longitude.ToString();
-            parameter.Add(new StringContent(lat), "lattitude");
+             lat = latitude.ToString();
+             lng = longitude.ToString();
+
+			parameter.Add(new StringContent(lat), "lattitude");
             parameter.Add(new StringContent(lng), "longitude");
-            var resp = await client.PostAsync(url, parameter);
+	
+				var resp = await client.PostAsync(url, parameter);
+
 
             Button cngview = FindViewById<Button>(Resource.Id.changeview);
             cngview.Visibility = ViewStates.Gone;
+			spun.Visibility = ViewStates.Gone;
 			if (resp.IsSuccessStatusCode)
 			{
 				var cont = await resp.Content.ReadAsStringAsync();
@@ -156,6 +235,9 @@ namespace Instore
 					mRecyclerView = FindViewById<RecyclerView>(Resource.Id.recyclerView);
 					list = mLayoutManager = new LinearLayoutManager(this);
 					cngview.Visibility = ViewStates.Visible;
+					spun.Visibility = ViewStates.Visible;
+                    pickplace.Visibility = ViewStates.Gone;
+                    toolbarpickplace.Visibility = ViewStates.Visible;
 					mRecyclerView.SetLayoutManager(mLayoutManager);
 					mAdapter = new Adapter(datas.data);
 					mRecyclerView.SetAdapter(mAdapter);

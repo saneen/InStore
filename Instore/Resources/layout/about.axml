@@ -6,7 +6,8 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="15dp"
+        android:layout_margin="20dp"
         android:text="V.1.0. The aim of In-Store app is to bring the ease and comfort of online shopping to our local shopping experience. The app allows you to view the products being sold in nearby stores along with the price. Nearby stores can be viewed using GPS. You could check the availability and compare the price at which a product is being sold at various stores. Thus saving your time and money."
-        android:textSize="18dp" />
+        android:textSize="20dp"
+        android:gravity="center_horizontal" />
 </LinearLayout>

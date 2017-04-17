@@ -16,6 +16,8 @@ using V7Toolbar = Android.Support.V7.Widget.Toolbar;
 using Android.Support.V7.Widget;
 using Android.Support.V7.App;
 using Android.Preferences;
+using System.Net.Http;
+using Newtonsoft.Json;
 
 namespace Instore
 {
@@ -29,6 +31,7 @@ namespace Instore
 		ImageView image;
 		string lattitude, longitude;
 		Button book;
+		string shopid;
 		protected override void OnCreate(Bundle savedInstanceState)
 		{
 			base.OnCreate(savedInstanceState);
@@ -51,6 +54,7 @@ SetContentView(Resource.Layout.productbookingLayout);
 			 lattitude = Intent.GetStringExtra("lattitude") ?? "Data not available";
 			longitude = Intent.GetStringExtra("longitude") ?? "Data not available";
 			string images= Intent.GetStringExtra("productimage") ?? "Data not available";
+			shopid=Intent.GetStringExtra("shopid") ?? "Data not available";
 			Koush.UrlImageViewHelper.SetUrlDrawable(image, "http://slashcode.ml/instore/image/" + images);
 			var toolbar = FindViewById<V7Toolbar>(Resource.Id.toolbar);
 			SetSupportActionBar(toolbar);
@@ -66,14 +70,18 @@ SetContentView(Resource.Layout.productbookingLayout);
 			getdirections.Click += getdirection_Click;
 			book.Click += book_Click;
 		}
-		private void book_Click(object sender, EventArgs e)
+		private async void book_Click(object sender, EventArgs e)
 		{
 			ISharedPreferences prefs = PreferenceManager.GetDefaultSharedPreferences(this);
 			var log = prefs.GetBoolean("LoggedIn", false);
 			if (log)
 			{
-				
-			}
+				var activity2 = new Intent(this, typeof(bookingActivity));
+				activity2.PutExtra("shop", shopid);
+				StartActivity(activity2);
+
+
+		}
 			else
 			{
 				Toast.MakeText(this, "You are not Signed In .Please SignIn and comeback", ToastLength.Long).Show();

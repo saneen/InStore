@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        android:background="#3F51B5"
+        android:background="#4ACED9"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
@@ -20,49 +20,46 @@
         <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="15dp"
-                android:text="The world of fashion is in your fingure tips .Click to get started"
-                android:textSize="18dp" />
+            android:layout_height="match_parent"
+            android:weightSum="4">
             <Button
                 android:text="Mobiles"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
                 android:id="@+id/c_mobiles"
-                android:background="#57d6c7" />
+                android:textColor="#ffffff"
+                android:layout_weight="1"
+                android:background="#779ecb" />
             <Button
                 android:text="Food and Hotels"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/c_food"
-                android:background="#57d6c7" />
+                android:textColor="#ffffff"
+                android:layout_weight="1"
+                android:background="#b19cd9" />
             <Button
                 android:text="Mens Clothing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/c_mensclothing"
-                android:background="#57d6c7" />
+                android:textColor="#ffffff"
+                android:layout_weight="1"
+                android:background="#ff6961" />
             <Button
                 android:text="Womens Clothing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
                 android:layout_centerHorizontal="true"
                 android:layout_centerVertical="true"
                 android:id="@+id/c_womensclothing"
-                android:background="#57d6c7" />
+                android:textColor="#ffffff"
+                android:layout_weight="1"
+                android:background="#ffd1dc" />
         </LinearLayout>
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"

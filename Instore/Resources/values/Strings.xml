@@ -5,4 +5,13 @@
       <item name="colorPrimary">#2196F3</item>
       <item name="colorPrimaryDark">#2196F3</item>
     </style>
+	<string name="Catagories">All Catagories</string>
+	<string-array name="catagory_array">
+		<item>Mobiles</item>
+		<item>Food and Hotels</item>
+		<item>Mens Shirts</item>
+		<item>Mens Pants</item>
+		<item>Churidar</item>
+		<item>Saree</item>
+	</string-array>
   </resources>

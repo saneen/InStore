@@ -10,54 +10,69 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        android:background="#3F51B5"
+        android:background="#fff"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
         android:layout_width="match_parent">
-        <RelativeLayout
+        <LinearLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:background="#4ACED9">
             <ImageView
                 android:id="@+id/pimagview"
-                android:layout_centerHorizontal="true"
                 android:src="@drawable/icon_shopping"
                 android:layout_width="80dp"
-                android:layout_height="80dp" />
+                android:layout_height="80dp"
+                android:layout_margin="40dp"
+                android:layout_gravity="center_horizontal" />
             <EditText
                 android:id="@+id/signusername"
+                android:inputType="textPersonName"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/pimageview"
-                android:layout_marginTop="90dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
-                android:hint="Username" />
+                android:hint="Username"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:gravity="center"
+                android:background="@drawable/textbox"
+                android:textColorHint="#4ACED9" />
             <EditText
                 android:inputType="textPassword"
                 android:id="@+id/signpass"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:hint="Password"
                 android:layout_below="@+id/signusername"
                 android:layout_marginTop="25dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp" />
+                android:layout_marginLeft="50dp"
+                android:layout_marginRight="50dp"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:background="@drawable/textbox"
+                android:textColorHint="#4ACED9" />
             <Button
                 android:id="@+id/login"
-                android:text="SIGN IN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:text="Sign In"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/signpass"
                 android:layout_marginTop="25dp"
-                android:background="#57d6c7" />
-        </RelativeLayout>
+                android:background="@drawable/buttonshape"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp"
+                android:gravity="center"
+                android:textColor="#ffffff" />
+        </LinearLayout>
         <android.support.design.widget.NavigationView
             android:id="@+id/nav_view"
             android:layout_height="match_parent"

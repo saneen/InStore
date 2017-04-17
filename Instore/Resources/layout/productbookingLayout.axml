@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
-        android:background="#3F51B5"
+        android:background="#4ACED9"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"
@@ -31,12 +31,17 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="5dp"
                         android:id="@+id/b_productname"
-                        android:hint="Product Name" />
+                        android:hint="Product Name"
+                        android:gravity="center"
+                        android:textSize="18dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="10dp" />
                     <ImageView
                         android:layout_width="match_parent"
-                        android:layout_height="350dp"
+                        android:layout_height="300dp"
                         android:padding="@dimen/cardview_default_elevation"
                         android:id="@+id/prodimage"
                         android:scaleType="fitCenter" />
@@ -44,43 +49,79 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/b_productdescrip"
-                        android:hint="Description" />
+                        android:hint="Description"
+                        android:textSize="15dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/b_price"
-                        android:hint="Price" />
+                        android:hint="Price"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="25dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/b_offprice"
-                        android:hint="Offer Price" />
+                        android:hint="Offer Price"
+                        android:textSize="25dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/b_shopname"
-                        android:hint="ShopName" />
+                        android:hint="ShopName"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginTop="5dp"
+                        android:textSize="18dp"
+                        android:gravity="center" />
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/b_descrip"
-                        android:hint="Description" />
+                        android:hint="Description"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="15dp"
+                        android:gravity="center" />
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:gravity="center"
                         android:id="@+id/p_getdirection"
-                        android:layout_marginTop="25dp"
+                        android:layout_marginTop="5dp"
                         android:text="Get Directions"
-                        android:background="#57d6c7" />
+                        android:background="@drawable/buttonshape"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:textColor="#ffffff" />
                     <Button
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="40dp"
                         android:text="Book"
-                        android:layout_marginTop="20dp"
-                        android:background="#57d6c7"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/buttonshape"
                         android:id="@+id/b_booking"
-                        android:gravity="center" />
+                        android:gravity="center"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginRight="50dp"
+                        android:textColor="#fff" />
                 </LinearLayout>
             </ScrollView>
         </RelativeLayout>
